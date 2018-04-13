@@ -1,0 +1,53 @@
+
+Window object that represents the browser itself (core of the dom)
+Root element inside document (in the window we have the document object) which is the HTML tag
+Then we have children --> Head and Body nodes
+These have their own children
+Head --> Title
+Body --> href, <a> <h1>
+These all have their own texts as their own children
+
+ console.dir(document);	
+- shows in console everything of the html page of properties and methods
+
+ console.log(document.all[10]);	
+- array (html collection) of everything in the DOM (by tag)
+
+document.all[10].textContent = 'Hello'
+- change the text content of that of index10 
+- but don't want to use this method as it will mess things up
+
+ headerTitle.innerText = 'Goodbye';				
+ - this overides textContent in header title
+ 
+ console.log(headerTitle.innerText);			
+ - innerText pays attention to the styling
+ 
+ headerTitle.innerHTML = '<h3>Hello</h3>'; 		
+ - puts HTML inside the <h1> dom element
+ 
+ header.style.borderBottom = 'solid 3px #000';	
+ -.style changes CSS but needs to be camelcase
+ 
+ 
+- Gives error if we try and make a change to all those in the list
+ items.style.backgroundColor = '#f4f4f4';
+ 
+- As its a HTML collection we need to iterate through the collection to do this
+ for(var i = 0; i < items.length; i++){
+   items[i].style.backgroundColor = '#f4f4f4';
+ }
+ 
+- :last-child for last on the list
+ var lastItem = document.querySelector('.list-group-item:last-child');	
+lastItem.style.color = 'blue';
+
+- use :nth-child(2) will change the second item (actual second item, not index 2 which would be 3rd item)
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.color = 'coral';
+
+var titles = document.querySelectorAll('.title');					
+- can put classes, ids, tags inside this
+console.log(titles);												
+-gives us node list of titles, but can run array functions with this (starting at index 0)
+titles[0].textContent = 'Hello';
