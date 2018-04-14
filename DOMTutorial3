@@ -1,0 +1,47 @@
+ 
+ btn - bootstrap
+ can write
+button.btn.btn-dark#button
+and then tab and it will auto complete as below
+ 
+ <button class="btn btn-dark btn-block" id="button">Click Here</button>
+
+ Could do 
+ <button onlick="buttonClick()"...
+ function buttonClick(){}
+
+ But is better to use an event listener
+ var button = document.getElementById('button').addEventListener('click', buttonClick());
+
+function buttonClick(e){
+    
+    console.log(e.target); 
+    - gives us the actual element that was clicked)
+    console.log(e.target.id);
+    - logs the id of the clicked element
+}
+
+We can also create a new div and use similar techniques to output info about an element
+onto the DOM
+    <div id="outputForTargetExample"></div>
+
+    var output = document.getElementById('outputForTargetExample');
+    output.innerHTML = '<h3>'+e.target.id+'</h3>';
+
+Use + around the e.target.id to concat in 
+
+  console.log(e.type);
+  Dont need to use target anymore, this will tell us what kind of event e is
+  In this case it is a 'click'
+
+console.log(e.clientX);
+Position from the actual window/browser
+
+console.log(e.offsetX);
+This is from the actual element itself (where abouts you click on it)
+
+box.addEventListener('mouseenter', runEvent);
+This would fire if the mouse is anywhere inside the box
+If you add an element inside the box, such as text then you can use 'mouseover'
+box.addEventListener('mouseover', runEvent);
+This will only fire when your mouse is over the element inside the box.

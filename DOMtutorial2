@@ -1,0 +1,50 @@
+var itemList = document.querySelector('#items');
+
+PARENTNODES
+- to find which parentNode #items is in then assign it a variable and;
+console.log(itemList.parentNode);
+- this should give us <div id="main"....
+- we can also keep chaining these to find the parent node of the main etc
+console.log(itemList.parentNode.parentNode);
+
+PARENTELEMENT
+.parentNode and .parentElement are mostly interchangeable
+
+CHILDNODES
+when .childNodes you receive a node list (like an array)
+in the list will also show line breaks as the word 'text'
+
+CHILDREN
+therefore it is suggested to use .children which will just show the list elements
+and now this is a HTMLCollection, rather than node list
+
+FIRSTELEMENTCHILD
+this is more useful than just .firstchild so that it gives you the actual li 
+itemList.firstElementChild.textContent = "Hello";
+.firstchild would usually give first text node, similar to .childNodes
+
+NEXT ELEMENT SIBLING
+will return null if there isn't any more siblings
+
+CREATING ELEMENTS...
+var newDive = document.createElement('div');
+newDiv.className='hello';
+newDive.id = 'hello1';
+newDive.setAttribute('actual attribute you want, such as a title', 'value of attribute');
+
+var newDivText = document.createTextNode('Hellohellohello');
+- now need to append this text node to the div as a child of the div 
+
+newDive.appendChild(newDiveText);
+- now assing where we want to put the new div 
+
+var container = document.querySelector('header .container');
+- in the header we want the container class 
+
+var h1 = document.querySelector('header h1');
+container.insertBefore(newDiv, h1); (what we are inserting, and what we are inserting before);
+
+- we can now treat this like any other DOM element as it is now part of the DOM
+
+
+
